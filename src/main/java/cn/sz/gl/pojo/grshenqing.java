@@ -1,6 +1,8 @@
 package cn.sz.gl.pojo;
 
-public class grshenqing {
+import java.io.Serializable;
+
+public class grshenqing implements Serializable{
 
 	private String name;
 	private Integer idcardnum;
