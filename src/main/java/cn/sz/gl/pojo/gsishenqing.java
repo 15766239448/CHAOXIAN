@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class gsishenqing implements Serializable{
 
+
 	private String gsname;
 	private Integer id;
 	private String address;

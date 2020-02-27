@@ -2,7 +2,9 @@ package cn.sz.gl.pojo;
 
 import java.io.Serializable;
 
+
 public class grshenqing implements Serializable{
+
 
 	private String name;
 	private Integer idcardnum;
