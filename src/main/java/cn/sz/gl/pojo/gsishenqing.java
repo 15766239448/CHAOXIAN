@@ -1,6 +1,8 @@
 package cn.sz.gl.pojo;
 
-public class gsishenqing {
+import java.io.Serializable;
+
+public class gsishenqing implements Serializable {
 
 	private String gsname;
 	private Integer id;
