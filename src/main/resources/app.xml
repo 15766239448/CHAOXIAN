@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		">  
+	
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.gjt.mm.mysql.Driver" ></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/wangwu?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="username" value="root" ></property>
+		<property name="password" value="tiger" ></property>
+	</bean>
+	
+	<!-- 这里，还需要配置连接工厂 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+		<property name="dataSource" ref="dataSource" ></property>
+		<property name="configLocation" value="classpath:mybatis_config.xml"></property>
+	</bean>
+		
+	<!-- spring注解 -->	
+	<context:annotation-config></context:annotation-config>
+	
+	<!-- 扫描范围，把包托管给spring -->
+	<context:component-scan base-package="cn.sz.gl"></context:component-scan>
+	
+	<!-- 不拦截 的路径mvc -->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources>
+	
+	<!-- 配置mvc的注解驱动 -->
+	<!-- <mvc:annotation-driven conversion-service="myconverter" ></mvc:annotation-driven> -->
+	<mvc:annotation-driven ></mvc:annotation-driven>
+	
+	<!-- 配置视图处理器 spring MVC-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- 创建某包所有实现类 -->
+	<bean id="daoimpl" class="org.mybatis.spring.mapper.MapperScannerConfigurer"  >
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" ></property>
+		<property name="basePackage" value="cn.sz.gl.dao" ></property>
+	</bean>
+	
+	<!-- 注解方式实现(事务) -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- tx事务驱动,transactionManager对象管理事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	
+</beans>
+ 
