@@ -19,7 +19,7 @@
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop 
 		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		">  
+		">
 	
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -31,7 +31,7 @@
 	
 	<!-- 这里，还需要配置连接工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
-		<property name="dataSource" ref="dataSource" ></property>
+		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:mybatis_config.xml"></property>
 	</bean>
 		
@@ -45,7 +45,6 @@
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
-	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources>
 	
 	<!-- 配置mvc的注解驱动 -->
 	<!-- <mvc:annotation-driven conversion-service="myconverter" ></mvc:annotation-driven> -->

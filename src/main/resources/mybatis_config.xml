@@ -7,5 +7,5 @@
 	<mappers>
 		<mapper resource="cn/sz/gl/pojo/Account.xml" />
 		
-	</mappers>
+	</mappers> 
 </configuration>
