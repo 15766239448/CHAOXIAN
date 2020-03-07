@@ -63,13 +63,6 @@
 		<property name="basePackage" value="cn.sz.gl.dao" ></property>
 	</bean>
 	
-	<!-- 注解方式实现(事务) -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	
-	<!-- tx事务驱动,transactionManager对象管理事务注解 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	
 </beans>

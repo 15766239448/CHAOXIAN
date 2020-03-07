@@ -3,17 +3,16 @@ package cn.sz.gl.pojo;
 import java.io.Serializable;
 
 public class Account implements Serializable{
-	private static final long serialVersionUID = 1L;
 	
-	private String loginName;
+	private String id;
 	private String name;
-	private String loginPwd;
+	private String password;
 	private String phone;
-	public String getLoginName() {
-		return loginName;
+	public String getId() {
+		return id;
 	}
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -21,11 +20,11 @@ public class Account implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLoginPwd() {
-		return loginPwd;
+	public String getPassword() {
+		return password;
 	}
-	public void setLoginPwd(String loginPwd) {
-		this.loginPwd = loginPwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getPhone() {
 		return phone;
@@ -33,5 +32,6 @@ public class Account implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 	
 }

@@ -4,20 +4,22 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<welcome-file-list>
-		<welcome-file>/denglu.jsp</welcome-file>
+		<welcome-file></welcome-file>
 	</welcome-file-list>
 	
 	
-	 <listener>
+	<!-- 监听，启用spring的容器 -->
+	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- spring的上下文参数 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:app.xml</param-value>
 	</context-param>
 	
-	
+	<!-- spring MVC添加 DispatcherServlet-->
 	<servlet>
 		<servlet-name>hello</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -25,19 +27,19 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:app.xml</param-value>
 		</init-param>
-	</servlet>
-	
+	</servlet>	
 	<servlet-mapping>
 		<servlet-name>hello</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<servlet-mapping>
+	<!-- 允许导入所有js等静态文件
+	<servlet-mapping>	
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.js,*.jpg,*.css</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
-	
+	<!-- 过滤器过滤所有请求，使得编码为UTF-8 -->
 	<filter>
 		<filter-name>encodingfilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -53,6 +55,6 @@
 	<filter-mapping>
 		<filter-name>encodingfilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> 
+	</filter-mapping>
 
 </web-app>

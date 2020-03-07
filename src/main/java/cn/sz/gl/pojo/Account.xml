@@ -3,23 +3,23 @@
 <mapper namespace="cn.sz.gl.dao.IAccountDAO">
 	
 	<!-- 查找所有的用户 -->
-	<select id="all" resultType="cn.sz.gl.pojo.Account">
-		SELECT loginName,name,loginPwd,phone FROM account
+	<select id="findall" resultType="cn.sz.gl.pojo.Account">
+		SELECT id,name,password,phone FROM denglu
 	</select>
 	
 	<!-- 验证账号和密码 -->
-	<select id="login" parameterType="cn.sz.gl.pojo.Account" resultType="cn.sz.gl.pojo.Account">
-		SELECT loginName,name,loginPwd,phone FROM account where loginName=#{loginName} and loginPwd=#{loginPwd}
+	<select id="islogin" parameterType="cn.sz.gl.pojo.Account" resultType="cn.sz.gl.pojo.Account">
+		SELECT id,name,password,phone FROM denglu where id=#{id} and password=#{password}
 	</select>
 
 	<!-- 注册用户 -->
 	<select id="registered" parameterType="cn.sz.gl.pojo.Account" >
-		insert into account(loginName,name,loginPwd,phone)VALUES(#{loginName},#{name},#{loginPwd},#{phone})
+		insert into denglu(id,name,password,phone)VALUES(#{id},#{name},#{password},#{phone})
 	</select>
 	
 	<!-- 验证用户名是否存在 -->
-	<select id="checkloginName" parameterType="java.lang.String" resultType="Integer">
-		SELECT COUNT(loginName) from account WHERE loginName=#{loginName}
+	<select id="checkid" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUNT(id) from denglu WHERE id=#{id}
 	</select>
 	
 </mapper>
