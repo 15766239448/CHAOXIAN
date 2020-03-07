@@ -9,7 +9,7 @@ public class AccountController {
 	
 	@RequestMapping("/")
 	public String firstpage() {
-		return "forward:fp";	
+		return "main";	
 	}
 	
 	@RequestMapping("fp")
