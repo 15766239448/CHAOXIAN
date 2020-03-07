@@ -42,9 +42,9 @@
 	<context:component-scan base-package="cn.sz.gl"></context:component-scan>
 	
 	<!-- 不拦截 的路径mvc -->
-	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
-	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
-	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="Login/js/" mapping="Login/js/**"></mvc:resources>
+	<mvc:resources location="Login/images/" mapping="Login/images/**"></mvc:resources>
+	<mvc:resources location="Login/css/" mapping="Login/css/**"></mvc:resources>
 	
 	<!-- 配置mvc的注解驱动 -->
 	<!-- <mvc:annotation-driven conversion-service="myconverter" ></mvc:annotation-driven> -->

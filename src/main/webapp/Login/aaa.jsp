@@ -9,6 +9,6 @@
 <body>
 <p>sssssssssss</p>
 
-	${a.loginName }---${a.name }---${a.loginPwd }---${a.phone }
+	${sessionScope.myuser.id }---${sessionScope.myuser.name }---${sessionScope.myuser.password }---${sessionScope.myuser.phone }
 </body>
 </html>
