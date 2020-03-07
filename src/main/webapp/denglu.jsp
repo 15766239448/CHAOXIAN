@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-<base href="<%=basepath %>登录/" />
+<base href="<%=basepath %>" />
     <meta charset="UTF-8">
     <title>超鲜网-登录页</title>
     <link rel="stylesheet" href="css/public.css"/>

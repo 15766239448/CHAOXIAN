@@ -15,6 +15,6 @@ public class AccountController {
 	}
 	@RequestMapping("dologin")
 	public String enterFirstpage(HttpServletRequest request) {
-		return "/Login/login";
+		return "login";
 	}
 }
