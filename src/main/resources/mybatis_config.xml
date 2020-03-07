@@ -6,5 +6,6 @@
 	<!-- 3.引入实体映射文件 -->
 	<mappers>
 		<mapper resource="cn/sz/gl/pojo/Account.xml" />
+		
 	</mappers>
 </configuration>
