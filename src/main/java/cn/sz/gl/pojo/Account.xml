@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.sz.gl.dao.IAccountDAO">
+	
+	<!-- 查找所有的用户 -->
+	<select id="all" resultType="cn.sz.gl.pojo.Account">
+		SELECT loginName,name,loginPwd,phone FROM account
+	</select>
+	
+	<!-- 验证账号和密码 -->
+	<select id="login" parameterType="cn.sz.gl.pojo.Account" resultType="cn.sz.gl.pojo.Account">
+		SELECT loginName,name,loginPwd,phone FROM account where loginName=#{loginName} and loginPwd=#{loginPwd}
+	</select>
+
+	<!-- 注册用户 -->
+	<select id="registered" parameterType="cn.sz.gl.pojo.Account" >
+		insert into account(loginName,name,loginPwd,phone)VALUES(#{loginName},#{name},#{loginPwd},#{phone})
+	</select>
+	
+	<!-- 验证用户名是否存在 -->
+	<select id="checkloginName" parameterType="java.lang.String" resultType="Integer">
+		SELECT COUNT(loginName) from account WHERE loginName=#{loginName}
+	</select>
+	
+</mapper>

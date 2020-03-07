@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="css/select.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome-ie7.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
+<script type="text/javascript" src="js/select.js"></script>
+<script type="text/javascript">
+	function check(loginName) {
+	$.post("../acc/check",{"loginName":loginName},function(date){
+		console.log(date)
+		if(date==1){
+			document.getElementById("msg1").innerText="该账号已被注册";
+		}
+	},"json")
+	}
+</script>
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
@@ -217,22 +231,22 @@
             </div>
             <!-- 注册表单 -->
             <div class="reg-form">
-                <form action="">
+                <form action="../acc/registered" method="post">
                     <div class="controls">
                         <p>用户名：</p>
-                        <input type="text" class="input03 w450">
+                        <input type="text" class="input03 w450" name="loginName" onblur="check(value);" value=""><span id="msg1"></span>
                     </div>
                     <div class="controls">
                         <p>密码：</p>
-                        <input type="text" class="input03 w450">
+                        <input type="password" class="input03 w450" name="loginPwd">
                     </div>
                     <div class="controls">
                         <p>确认密码：</p>
-                        <input type="text" class="input03 w450">
+                        <input type="password" class="input03 w450" name="loginPwd">
                     </div>
                      <div class="controls">
                         <p>手机号：</p>
-                        <input type="text" class="input03 w450">
+                        <input type="text" class="input03 w450" name="phone">
                     </div>
                     <div class="controls">
                         <input type="button" value="获取验证码" class="btn06 w450">
@@ -250,7 +264,7 @@
 
                     </div>
                     <div class="controls">
-                        <input type="button" value="同意协议并注册" class="btn07 w450">
+                        <input type="submit" value="同意协议并注册" class="btn07 w450">
                     </div>
                 </form>
             </div>
@@ -466,10 +480,7 @@
         </div>
     </div>
     <a href="#" id="closeBox" class="thickclose">×</a></div>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/select.js"></script>
+
 <script>
     $(function(){
        $('.pact').click(function(){
