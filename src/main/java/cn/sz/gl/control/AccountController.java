@@ -1,5 +1,7 @@
 package cn.sz.gl.control;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,12 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AccountController {
 	
 	@RequestMapping("/")
-	public String firstpage() {
+	public String firstpage(HttpServletRequest request) {
 		return "main";	
-	}
-	
-	@RequestMapping("fp")
-	public String enterFirstPage() {
-		return "main";
 	}
 }
